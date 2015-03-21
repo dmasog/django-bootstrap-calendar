@@ -4,8 +4,13 @@ __author__ = 'sandlbn'
 from django import template
 from django.template.loader import render_to_string
 from django_bootstrap_calendar.utils import MinifyJs
+from datetime import datetime
 
 register = template.Library()
+
+@register.simple_tag
+def fill_month():
+    return datetime.today().strftime("%B %Y").upper()
 
 
 @register.simple_tag
@@ -89,6 +94,10 @@ def bootstrap_calendar_init(*args, **kwargs):
         options["width"] = kwargs["width"]
     except KeyError:
         options["width"] = '100%'
+
+    options["month"] = datetime.today().strftime("%B %Y").upper()
+
+    print "TODAY:",datetime.today().strftime("%B %Y").upper()
 
     return render_to_string('django_bootstrap_calendar/partial/calendar_init.html', options)
 
