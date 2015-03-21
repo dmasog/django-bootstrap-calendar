@@ -875,6 +875,8 @@ if(!String.prototype.formatNum) {
 							}
 							if(json.result) {
 								events = json.result;
+                                                                console.log(json.month)
+                                                                $('#mnth').text(json.month)
 							}
 						});
 						return events;

@@ -1,6 +1,8 @@
 {% load i18n %}
+{% load bootstrap_calendar %}
 
 <div class="row">
+    <h1 id="mnth" class="pull-left">{% fill_month %}</h1>
     <div class="btn-group {{ css_classes }}">
         <button class="btn btn-primary" data-calendar-nav="prev"> {% trans 'Prev' %} </button>
         <button class="btn" data-calendar-nav="today">Today </button>
